@@ -35,26 +35,33 @@ public class MainPageObject {
     //Локатор для кнопки <Я жизу за МКАДом, привезёте?>
     private final static By BORDER_DELIVERY = By.id("accordion__heading-7");
 
-    public void clickRentPrice() {driver.findElement(RENT_PRICE).click();}
+    public void clickRentPrice() { driver.findElement(RENT_PRICE).click(); }
+
     public void clickRentalOfSeveralScooters() {
         driver.findElement(RENTAL_OF_SEVERAL_SCOOTERS).click();
     }
+
     public void clickTimeRental() {
         driver.findElement(TIME_RENTAL).click();
     }
-    public void clickRentForToday(){
+
+    public void clickRentForToday() {
         driver.findElement(RENT_FOR_TODAY).click();
     }
-    public void clickChangeRentalTime(){
+
+    public void clickChangeRentalTime() {
         driver.findElement(CHANGE_RENTAL_TIME).click();
     }
-    public void clickChargingScooter(){
+
+    public void clickChargingScooter() {
         driver.findElement(CHARGING_SCOOTER).click();
     }
-    public void clickCancelOrder(){
+
+    public void clickCancelOrder() {
         driver.findElement(CANCEL_ORDER).click();
     }
-    public void clickBorderDelivery(){
+
+    public void clickBorderDelivery() {
         driver.findElement(BORDER_DELIVERY).click();
     }
 }

@@ -33,15 +33,13 @@ public class CheckOrder {
 
     @Parameterized.Parameters
     public static Object[][] getCheckOrder() {
-        return new Object[][]{
-                {"Марсель", "Файзуллин", "Москва","89711234567","Заказ оформлен"},
-                {"Имя", "Фамилия","Санкт-Петербург","79851024100","Заказ оформлен"},
-        };
+        return new Object[][]{{"Марсель", "Файзуллин", "Москва", "89711234567", "Заказ оформлен"},
+                {"Имя", "Фамилия", "Санкт-Петербург", "79851024100", "Заказ оформлен"},};
     }
 
 
     @Before
-    public void OpenBrowser() {
+    public void openBrowser() {
         driver = new ChromeDriver();
         //driver = new FirefoxDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -50,24 +48,23 @@ public class CheckOrder {
     }
 
     @Test
-    public void CheckOrder() {
+    public void checkOrder() {
         OrderPage orderPage = new OrderPage(driver);
-        orderPage.ClickOrder();
-        orderPage.FillName(name);
-        orderPage.FillSurname(surname);
-        orderPage.FillAdress(adress);
-        orderPage.FillStationMetro();
-        orderPage.FillTelephone(number);
-        orderPage.ClickOk();
-        orderPage.FillDate();
-        orderPage.FillRentalPeriod();
-        orderPage.FillColor();
-        orderPage.FillComment();
-        orderPage.ClickOrderOk();
-        orderPage.ClickConfirmOrder();
+        orderPage.clickOrder();
+        orderPage.fillName(name);
+        orderPage.fillSurname(surname);
+        orderPage.fillAdress(adress);
+        orderPage.fillStationMetro();
+        orderPage.fillTelephone(number);
+        orderPage.clickOk();
+        orderPage.fillDate();
+        orderPage.fillRentalPeriod();
+        orderPage.fillColor();
+        orderPage.fillComment();
+        orderPage.clickOrderOk();
+        orderPage.clickConfirmOrder();
         String textOrderProcessed = driver.findElement(By.xpath("//div[@class = 'Order_ModalHeader__3FDaJ']")).getText();
         MatcherAssert.assertThat(textOrderProcessed, startsWith(result));
-
     }
 
     @After

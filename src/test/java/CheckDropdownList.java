@@ -30,7 +30,7 @@ public class CheckDropdownList {
     private WebDriver driver;
 
     @Before
-    public void OpenBrowser(){
+    public void openBrowser() {
         driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
         driver.findElement(By.id("rcc-confirm-button")).click();
@@ -38,63 +38,71 @@ public class CheckDropdownList {
     }
 
     @Test
-    public void CheckRentPrice(){
+    public void checkTextRentPrice() {
         MainPageObject mainPageObject = new MainPageObject(driver);
         mainPageObject.clickRentPrice();
         String textResponseOne = driver.findElement(By.xpath(".//div[@id = 'accordion__panel-0']/p")).getText();
         Assert.assertEquals("Текст не совпадает", responseRentPrice, textResponseOne);
     }
+
     @Test
-    public void CheckRentalOfSeveralScooters(){
+    public void checkTextRentalOfSeveralScooters() {
         MainPageObject mainPageObject = new MainPageObject(driver);
         mainPageObject.clickRentalOfSeveralScooters();
         String textResponseTwo = driver.findElement(By.xpath(".//div[@id = 'accordion__panel-1']/p")).getText();
         Assert.assertEquals("Текст не совпадает", responseRentalOfSeveralScooters, textResponseTwo);
     }
+
     @Test
-    public void CheckTimeRental(){
+    public void checkTextTimeRental() {
         MainPageObject mainPageObject = new MainPageObject(driver);
         mainPageObject.clickTimeRental();
         String textResponseThree = driver.findElement(By.xpath(".//div[@id = 'accordion__panel-2']/p")).getText();
         Assert.assertEquals("Текст не совпадает", responseTimeRental, textResponseThree);
     }
+
     @Test
-    public void CheckRentForToday(){
+    public void checkTextRentForToday() {
         MainPageObject mainPageObject = new MainPageObject(driver);
         mainPageObject.clickRentForToday();
         String textResponseFour = driver.findElement(By.xpath(".//div[@id = 'accordion__panel-3']/p")).getText();
         Assert.assertEquals("Текст не совпадает", responseRentForToday, textResponseFour);
     }
+
     @Test
-    public void CheckChangeRentalTime(){
+    public void checkTextChangeRentalTime() {
         MainPageObject mainPageObject = new MainPageObject(driver);
         mainPageObject.clickChangeRentalTime();
         String textResponseFive = driver.findElement(By.xpath(".//div[@id = 'accordion__panel-4']/p")).getText();
         Assert.assertEquals("Текст не совпадает", responseChangeRentalTime, textResponseFive);
     }
+
     @Test
-    public void CheckChargingScooter(){
+    public void checkTextChargingScooter() {
         MainPageObject mainPageObject = new MainPageObject(driver);
         mainPageObject.clickChargingScooter();
         String textResponseSix = driver.findElement(By.xpath(".//div[@id = 'accordion__panel-5']/p")).getText();
         Assert.assertEquals("Текст не совпадает", responseChargingScooter, textResponseSix);
     }
+
     @Test
-    public void CheckCancelOrder(){
+    public void checkTextCancelOrder() {
         MainPageObject mainPageObject = new MainPageObject(driver);
         mainPageObject.clickCancelOrder();
         String textResponseSeven = driver.findElement(By.xpath(".//div[@id = 'accordion__panel-6']/p")).getText();
         Assert.assertEquals("Текст не совпадает", responseCancelOrder, textResponseSeven);
     }
+
     @Test
-    public void CheckBorderDelivery(){
+    public void checkTextBorderDelivery() {
         MainPageObject mainPageObject = new MainPageObject(driver);
         mainPageObject.clickBorderDelivery();
         String textResponseEight = driver.findElement(By.xpath(".//div[@id = 'accordion__panel-7']/p")).getText();
         Assert.assertEquals("Текст не совпадает", responseBorderDelivery, textResponseEight);
     }
+
     @After
-    public void closeBrowser(){
+    public void closeBrowser() {
         driver.quit();
     }
 }
